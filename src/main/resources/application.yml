@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: mail_sender
+  datasource:
+    url: jdbc:mysql://localhost:3308/mail_db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: root
+    password: Rommel@19
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 20000
+      auto-commit: true
+  mail:
+    host: mail.telmail.co.zw
+    port: 26
+    username: admin@insureme.co.zw
+    password: insureme@2025
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: mail.telmail.co.zw
+  profiles:
+    active: debug
+
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.lob.non_contextual_creation: true
+
+
+
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=587
+#spring.mail.username=tkayenie@gmail.com
+#spring.mail.password=djesqkjaighgvedu
+#spring.mail.properties.mail.smtp.auth=true
+#spring.mail.properties.mail.smtp.starttls.enable=true
